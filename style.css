@@ -47,7 +47,14 @@ header {
   margin: 0 auto;
 }
 
-/* Texte dans le bandeau */
+/* Texte dans le bandeau MAJ */
+.header-texte {
+  display: flex;
+  flex-direction: column;           /* Empile les lignes verticalement */
+  align-items: center;              /* Centre les blocs entre eux */
+  text-align: center;               /* Centre le texte à l'intérieur */
+}
+
 .header-texte h1,
 .header-texte p {
   margin: 0;
