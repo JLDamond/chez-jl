@@ -28,6 +28,55 @@ a {
 }
 
 /* =========================
+   NOUVELLE PAGE : FORMULAIRE MÉCANO
+========================= */
+
+body.form-mecanique {
+  /* Application de l'image de fond sur toute la page */
+  background: url("figurine-page mecano.png") no-repeat center center fixed;
+  background-size: cover;
+}
+
+/* Header spécifique au formulaire mécano */
+body.form-mecanique header {
+  background: #6f6f6f; /* Anthracite pastel identique à la page Mécanique */
+  color: white;
+  text-align: center;
+  padding: 20px;
+}
+
+/* Bouton retour spécifique du formulaire */
+body.form-mecanique .btn-retour {
+  display: inline-block;
+  margin-bottom: 12px;
+  text-decoration: none;
+  background: rgba(255, 255, 255, 0.8); /* Légèrement plus opaque pour le contraste */
+  color: #2b1d0f;
+  font-weight: bold;
+  padding: 8px 14px;
+  border-radius: 5px;
+}
+
+/* Conteneur du formulaire adapté au fond illustré */
+body.form-mecanique main {
+  max-width: 900px;
+  margin: 40px auto;
+  background: rgba(255, 255, 255, 0.95); /* Blanc semi-transparent esthétique */
+  padding: 30px;
+  border-radius: 8px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.15);
+}
+
+/* Ajustements des champs pour la page mécano */
+body.form-mecanique textarea,
+body.form-mecanique input[type="text"],
+body.form-mecanique input[type="email"],
+body.form-mecanique input[type="url"] {
+  margin: 8px 0 16px 0;
+  border-radius: 4px;
+}
+
+/* =========================
    HEADER / BANDEAU SUPÉRIEUR
 ========================= */
 
