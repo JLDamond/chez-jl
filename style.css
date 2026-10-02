@@ -1,67 +1,245 @@
-<!DOCTYPE html>
-<html lang="fr">
-<head>
-  <meta charset="UTF-8">
-  <title>Proposer une astuce Mécanique – chez-JL</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" href="style.css">
-</head>
+/* =========================
+   BASE GÉNÉRALE original
+========================= */
 
-<body class="form-mecanique">
+* {
+  box-sizing: border-box;
+}
 
-<header>
-  <a href="mecanique.html" class="btn-retour">⬅ Retour</a>
-  <h1>chez-JL</h1>
-  <p>Proposer une astuce Mécanique</p>
-</header>
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  background: #f5efe6;
+  color: #2b1d0f;
+}
 
-<main>
+h1, h2, h3 {
+  margin: 0 0 15px 0;
+}
 
-<form action="https://formspree.io/f/TON_ID_FORM" method="POST">
-  
-  <!-- Origine pour identifier la page -->
-  <input type="hidden" name="origine" value="Mécanique">
+p {
+  line-height: 1.6;
+  margin: 0;
+}
 
-  <!-- Description obligatoire -->
-  <h2>Description de l’astuce</h2>
-  <textarea name="description" rows="5" required
-    placeholder="Explique ton astuce mécanique en au moins 3 lignes (quoi, comment, pourquoi)"></textarea>
+a {
+  color: inherit;
+  text-decoration: none;
+}
 
-  <!-- Thèmes -->
-  <h2>Thèmes</h2>
-  <div class="themes">
-    <label><input type="checkbox" name="themes" value="Vélo"> Vélo</label>
-    <label><input type="checkbox" name="themes" value="Auto"> Auto</label>
-    <label><input type="checkbox" name="themes" value="Moto"> Moto</label>
-    <label><input type="checkbox" name="themes" value="Outils"> Outils</label>
-    <label><input type="checkbox" name="themes" value="Autre"> Autre</label>
-  </div>
+/* =========================
+   HEADER / BANDEAU SUPÉRIEUR
+========================= */
 
-  <!-- Vidéo facultative -->
-  <h2>Vidéo (facultatif)</h2>
-  <input type="url" name="video" placeholder="Lien YouTube ou Vimeo">
+header {
+  padding: 25px 20px 35px;
+  text-align: center;
+  position: relative;
+}
 
-  <!-- Images facultatives -->
-  <h2>Images (liens)</h2>
-  <input type="url" name="image1" placeholder="Lien image 1 (JPG, PNG, WEBP)">
-  <input type="url" name="image2" placeholder="Lien image 2 (optionnel)">
+/* Conteneur figurine + texte */
+.header-centre {
+  display: flex;
+  align-items: center;              /* centrage vertical parfait */
+  justify-content: center;
+  gap: 20px;
+  max-width: 1000px;
+  margin: 0 auto;
+}
 
-  <!-- Contact facultatif -->
-  <h2>Contact (facultatif)</h2>
-  <input type="text" name="nom" placeholder="Nom ou pseudo">
-  <input type="email" name="email" placeholder="Email">
+/* Texte dans le bandeau MAJ */
+.header-texte {
+  display: flex;
+  flex-direction: column;           /* Empile les lignes verticalement */
+  align-items: center;              /* Centre les blocs entre eux */
+  text-align: center;               /* Centre le texte à l'intérieur */
+}
 
-  <!-- Redirection après soumission -->
-  <input type="hidden" name="_redirect" value="https://chez-jl.com/merci.html">
+.header-texte h1,
+.header-texte p {
+  margin: 0;
+  color: white;
+}
+/* 🟢 AJOUTEZ LE CODE JUSTE ICI : */
+.page-mecanique header h1,
+.page-mecanique header p {
+  color: #ffffff !important;
+}
+/* =========================
+   FIGURINE
+========================= */
 
-  <button type="submit">Envoyer mon astuce</button>
-</form>
+.figurine {
+  height: 90px;                     /* taille moyenne */
+  width: auto;
+  max-height: 60%;
+  pointer-events: none;
+}
 
-</main>
+/* Responsive figurine */
+@media (max-width: 700px) {
+  .figurine {
+    height: 70px;
+  }
+}
 
-<footer>
-  © chez-JL – Tous droits réservés
-</footer>
+/* =========================
+   BOUTON ACCUEIL / RETOUR
+========================= */
 
-</body>
-</html>
+.btn-retour {
+  display: inline-block;
+  background: rgba(255,255,255,0.65);
+  padding: 10px 22px;
+  border-radius: 14px;
+  font-weight: 900;                 /* flèche forte */
+  font-size: 15px;
+  color: #2b1d0f;
+  margin-bottom: 18px;
+}
+
+/* =========================
+   COULEURS DES BANDEAUX
+========================= */
+
+.page-accueil header {
+  background: #7fcfc7;              /* vert pastel */
+}
+
+.page-bricolage header {
+  background: #c9a36a;
+}
+
+.page-maison header {
+  background: #9ec9a3;
+}
+
+.page-electricite header {
+  background: #c45a4a;
+}
+
+.page-creation header {
+  background: #b6a4d8;
+}
+
+.page-objets-anciens header {
+  background: #7fb3d5;
+}
+
+.page-mecanique header {
+  background: #6f6f6f;
+}
+
+.page-jardinage header {
+  background: #8fbf8f;
+}
+
+.page-couture header {
+  background: #c8a2c8;
+}
+
+/* =========================
+   MENU ACCUEIL (INDEX)
+========================= */
+
+.menu-principal {
+  margin-top: 20px;
+}
+
+.menu-deux-lignes {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 12px;
+}
+
+/* Boutons accueil type "bulle" */
+.menu-deux-lignes a {
+  background: rgba(255,255,255,0.25);
+  padding: 10px 18px;
+  border-radius: 20px;
+  font-weight: bold;
+  color: white;
+  min-width: 180px;
+  text-align: center;
+}
+
+/* =========================
+   CONTENU PRINCIPAL
+========================= */
+
+main {
+  max-width: 900px;
+  margin: auto;
+  background: white;
+  padding: 30px;
+}
+
+/* Séparateur */
+.separation {
+  border: none;
+  border-top: 1px solid #ddd;
+  margin: 25px 0;
+}
+
+/* =========================
+   BOUTONS GÉNÉRAUX
+========================= */
+
+.btn {
+  display: inline-block;
+  background: #2b1d0f;
+  color: #ffffff;
+  padding: 12px 22px;
+  border-radius: 14px;
+  font-size: 16px;
+  font-weight: bold;
+  cursor: pointer;
+  border: none;
+}
+
+.btn:hover {
+  opacity: 0.9;
+}
+
+/* =========================
+   FORMULAIRES
+========================= */
+
+textarea,
+input[type="text"],
+input[type="email"],
+input[type="url"] {
+  width: 100%;
+  padding: 10px;
+  margin: 8px 0 20px 0;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+}
+
+.themes {
+  margin-bottom: 35px;              /* espace avant "Vidéo" */
+}
+
+.themes label {
+  display: inline-block;
+  margin-right: 14px;
+}
+
+/* Bouton envoyer = même style que retour */
+.form-actions .btn {
+  background: rgba(255,255,255,0.65);
+  color: #2b1d0f;
+  font-weight: 900;
+}
+
+/* =========================
+   FOOTER
+========================= */
+
+footer {
+  background: #ddd;
+  text-align: center;
+  padding: 15px;
+  font-size: 14px;
+}
