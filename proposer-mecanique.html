@@ -2,121 +2,35 @@
 <html lang="fr">
 <head>
   <meta charset="UTF-8">
-  <title>Proposer une astuce Mécanique – chez-JL</title>
+  <title>Mécanique – chez-JL</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="style.css">
-  <style>
-    /* Styles spécifiques pour ce formulaire */
-    body.form-mecanique header {
-      background: #6f6f6f; /* identique à la page Mécanique (anthracite pastel) */
-      color: white;
-      text-align: center;
-      padding: 20px;
-    }
-
-    .btn-retour {
-      display: inline-block;
-      margin-bottom: 12px;
-      text-decoration: none;
-      background: rgba(255,255,255,0.5);
-      color: #2b1d0f;
-      font-weight: bold;
-      padding: 8px 14px;
-      border-radius: 5px;
-    }
-
-    main {
-      max-width: 900px;
-      margin: auto;
-      background: #fff;
-      padding: 30px;
-    }
-
-    textarea,
-    input[type="text"],
-    input[type="email"],
-    input[type="url"] {
-      width: 100%;
-      padding: 10px;
-      margin: 8px 0 16px 0;
-      border: 1px solid #ccc;
-      border-radius: 4px;
-    }
-
-    .themes label {
-      display: inline-block;
-      margin-right: 12px;
-    }
-
-    button {
-      background: #2b1d0f;
-      color: #fff;
-      padding: 12px 20px;
-      border-radius: 5px;
-      border: none;
-      font-size: 16px;
-      font-weight: bold;
-      cursor: pointer;
-    }
-
-    footer {
-      background: #ddd;
-      text-align: center;
-      padding: 15px;
-      font-size: 14px;
-    }
-  </style>
 </head>
 
-<body class="form-mecanique">
+<body class="page-mecanique">
 
 <header>
-  <a href="mecanique.html" class="btn-retour">⬅ Retour</a>
+  <!-- Bouton Accueil -->
+  <a href="index.html" class="btn-retour btn-centre">⬅ Accueil</a>
+
   <h1>chez-JL</h1>
-  <p>Proposer une astuce Mécanique</p>
+  <p>Astuces mécaniques</p>
 </header>
 
 <main>
 
-<form action="https://formspree.io/f/TON_ID_FORM" method="POST">
-  
-  <!-- Origine pour identifier la page -->
-  <input type="hidden" name="origine" value="Mécanique">
+  <h2>Mécanique</h2>
 
-  <!-- Description obligatoire -->
-  <h2>Description de l’astuce</h2>
-  <textarea name="description" rows="5" required
-    placeholder="Explique ton astuce mécanique en au moins 3 lignes (quoi, comment, pourquoi)"></textarea>
+  <p>
+    Conseils et astuces pour comprendre, entretenir et réparer
+    des systèmes mécaniques : vélo, auto, moto, outils et mécanismes simples.
+  </p>
 
-  <!-- Thèmes -->
-  <h2>Thèmes</h2>
-  <div class="themes">
-    <label><input type="checkbox" name="themes" value="Vélo"> Vélo</label>
-    <label><input type="checkbox" name="themes" value="Auto"> Auto</label>
-    <label><input type="checkbox" name="themes" value="Moto"> Moto</label>
-    <label><input type="checkbox" name="themes" value="Outils"> Outils</label>
-    <label><input type="checkbox" name="themes" value="Autre"> Autre</label>
-  </div>
+  <hr class="separation">
 
-  <!-- Vidéo facultative -->
-  <h2>Vidéo (facultatif)</h2>
-  <input type="url" name="video" placeholder="Lien YouTube ou Vimeo">
-
-  <!-- Images facultatives -->
-  <h2>Images (liens)</h2>
-  <input type="url" name="image1" placeholder="Lien image 1 (JPG, PNG, WEBP)">
-  <input type="url" name="image2" placeholder="Lien image 2 (optionnel)">
-
-  <!-- Contact facultatif -->
-  <h2>Contact (facultatif)</h2>
-  <input type="text" name="nom" placeholder="Nom ou pseudo">
-  <input type="email" name="email" placeholder="Email">
-
-  <!-- Redirection après soumission -->
-  <input type="hidden" name="_redirect" value="https://chez-jl.com/merci.html">
-
-  <button type="submit">Envoyer mon astuce</button>
-</form>
+  <a href="proposer-mecanique.html" class="btn">
+   Proposer une astuce mécanique
+  </a>
 
 </main>
 
