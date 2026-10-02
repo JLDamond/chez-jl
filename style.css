@@ -146,23 +146,6 @@ header {
   color: #2b1d0f;
   margin-bottom: 18px;
 }
-/* ============================================
-Style du bouton Mécanique sur la page d'accueil 
-=============================================== */
-.menu-deux-lignes a.btn-mecanique-menu {
-  background: #6f6f6f; /* Couleur anthracite pastel */
-  padding: 10px 18px;
-  border-radius: 20px;
-  font-weight: bold;
-  color: white;
-  min-width: 180px;
-  text-align: center;
-  transition: opacity 0.2s;
-}
-
-.menu-deux-lignes a.btn-mecanique-menu:hover {
-  opacity: 0.85;
-}
 /* =========================
    COULEURS DES BANDEAUX
 ========================= */
@@ -228,7 +211,23 @@ Style du bouton Mécanique sur la page d'accueil
   min-width: 180px;
   text-align: center;
 }
+/* ============================================
+Style du bouton Mécanique sur la page d'accueil 
+=============================================== */
+.menu-deux-lignes a.btn-mecanique-menu {
+  background: #6f6f6f; /* Couleur anthracite pastel */
+  padding: 10px 18px;
+  border-radius: 20px;
+  font-weight: bold;
+  color: white;
+  min-width: 180px;
+  text-align: center;
+  transition: opacity 0.2s;
+}
 
+.menu-deux-lignes a.btn-mecanique-menu:hover {
+  opacity: 0.85;
+}
 /* =========================
    CONTENU PRINCIPAL
 ========================= */
