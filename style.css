@@ -28,7 +28,52 @@ a {
 }
 
 /* =========================
-   HEADER / BANDEAU SUPÉRIEUR
+   NOUVELLE PAGE : FORMULAIRE MÉCANO
+========================= */
+
+body.form-mecanique {
+  /* Application de l'image de fond figurine */
+  background: url("figurine-page mecano.png") no-repeat center center fixed;
+  background-size: cover;
+}
+
+body.form-mecanique header {
+  background: #6f6f6f; /* Anthracite pastel */
+  color: white;
+  text-align: center;
+  padding: 20px;
+}
+
+body.form-mecanique .btn-retour {
+  display: inline-block;
+  margin-bottom: 12px;
+  text-decoration: none;
+  background: rgba(255, 255, 255, 0.8);
+  color: #2b1d0f;
+  font-weight: bold;
+  padding: 8px 14px;
+  border-radius: 5px;
+}
+
+body.form-mecanique main {
+  max-width: 900px;
+  margin: 40px auto;
+  background: rgba(255, 255, 255, 0.95); /* Blanc semi-transparent */
+  padding: 30px;
+  border-radius: 8px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.15);
+}
+
+body.form-mecanique textarea,
+body.form-mecanique input[type="text"],
+body.form-mecanique input[type="email"],
+body.form-mecanique input[type="url"] {
+  margin: 8px 0 16px 0;
+  border-radius: 4px;
+}
+
+/* =========================
+   HEADER / BANDEAU SUPÉRIEUR HÉRITÉ
 ========================= */
 
 header {
@@ -37,21 +82,31 @@ header {
   position: relative;
 }
 
-/* Conteneur figurine + texte */
 .header-centre {
   display: flex;
-  align-items: center;              /* centrage vertical parfait */
+  align-items: center;
   justify-content: center;
   gap: 20px;
   max-width: 1000px;
   margin: 0 auto;
 }
 
-/* Texte dans le bandeau */
+.header-texte {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
 .header-texte h1,
 .header-texte p {
   margin: 0;
   color: white;
+}
+
+.page-mecanique header h1,
+.page-mecanique header p {
+  color: #ffffff !important;
 }
 
 /* =========================
@@ -59,13 +114,12 @@ header {
 ========================= */
 
 .figurine {
-  height: 90px;                     /* taille moyenne */
+  height: 90px;
   width: auto;
   max-height: 60%;
   pointer-events: none;
 }
 
-/* Responsive figurine */
 @media (max-width: 700px) {
   .figurine {
     height: 70px;
@@ -73,7 +127,7 @@ header {
 }
 
 /* =========================
-   BOUTON ACCUEIL / RETOUR
+   BOUTONS DE RETOUR
 ========================= */
 
 .btn-retour {
@@ -81,54 +135,28 @@ header {
   background: rgba(255,255,255,0.65);
   padding: 10px 22px;
   border-radius: 14px;
-  font-weight: 900;                 /* flèche forte */
+  font-weight: 900;
   font-size: 15px;
   color: #2b1d0f;
   margin-bottom: 18px;
 }
 
 /* =========================
-   COULEURS DES BANDEAUX
+   COULEURS DES BANDEAUX (ACCUEIL & PAGES)
 ========================= */
 
-.page-accueil header {
-  background: #7fcfc7;              /* vert pastel */
-}
-
-.page-bricolage header {
-  background: #c9a36a;
-}
-
-.page-maison header {
-  background: #9ec9a3;
-}
-
-.page-electricite header {
-  background: #c45a4a;
-}
-
-.page-creation header {
-  background: #b6a4d8;
-}
-
-.page-objets-anciens header {
-  background: #7fb3d5;
-}
-
-.page-mecanique header {
-  background: #6f6f6f;
-}
-
-.page-jardinage header {
-  background: #8fbf8f;
-}
-
-.page-couture header {
-  background: #c8a2c8;
-}
+.page-accueil header { background: #7fcfc7; }
+.page-bricolage header { background: #c9a36a; }
+.page-maison header { background: #9ec9a3; }
+.page-electricite header { background: #c45a4a; }
+.page-creation header { background: #b6a4d8; }
+.page-objets-anciens header { background: #7fb3d5; }
+.page-mecanique header { background: #6f6f6f; }
+.page-jardinage header { background: #8fbf8f; }
+.page-couture header { background: #c8a2c8; }
 
 /* =========================
-   MENU ACCUEIL (INDEX)
+   MENU ACCUEIL (INDEX) & STYLES DES BOUTONS
 ========================= */
 
 .menu-principal {
@@ -142,7 +170,7 @@ header {
   gap: 12px;
 }
 
-/* Boutons accueil type "bulle" */
+/* Style de base des bulles du menu */
 .menu-deux-lignes a {
   background: rgba(255,255,255,0.25);
   padding: 10px 18px;
@@ -151,10 +179,25 @@ header {
   color: white;
   min-width: 180px;
   text-align: center;
+  transition: background 0.2s, transform 0.1s;
+}
+
+.menu-deux-lignes a:hover {
+  background: rgba(255,255,255,0.4);
+}
+
+/* 🟢 STYLE UNIQUE POUR LE NOUVEAU BOUTON PAGE MÉCANO SUR L'ACCUEIL */
+.menu-deux-lignes a.btn-form-mecano-menu {
+  background: #6f6f6f; /* Anthracite distinctif */
+  border: 2px solid white;
+}
+
+.menu-deux-lignes a.btn-form-mecano-menu:hover {
+  background: #4e4e4e;
 }
 
 /* =========================
-   CONTENU PRINCIPAL
+   CONTENU PRINCIPAL ET FORMULAIRES
 ========================= */
 
 main {
@@ -164,18 +207,13 @@ main {
   padding: 30px;
 }
 
-/* Séparateur */
 .separation {
   border: none;
   border-top: 1px solid #ddd;
   margin: 25px 0;
 }
 
-/* =========================
-   BOUTONS GÉNÉRAUX
-========================= */
-
-.btn {
+.btn, button[type="submit"] {
   display: inline-block;
   background: #2b1d0f;
   color: #ffffff;
@@ -185,15 +223,12 @@ main {
   font-weight: bold;
   cursor: pointer;
   border: none;
+  transition: opacity 0.2s;
 }
 
-.btn:hover {
+.btn:hover, button[type="submit"]:hover {
   opacity: 0.9;
 }
-
-/* =========================
-   FORMULAIRES
-========================= */
 
 textarea,
 input[type="text"],
@@ -207,7 +242,7 @@ input[type="url"] {
 }
 
 .themes {
-  margin-bottom: 35px;              /* espace avant "Vidéo" */
+  margin-bottom: 35px;
 }
 
 .themes label {
@@ -215,7 +250,6 @@ input[type="url"] {
   margin-right: 14px;
 }
 
-/* Bouton envoyer = même style que retour */
 .form-actions .btn {
   background: rgba(255,255,255,0.65);
   color: #2b1d0f;
@@ -232,3 +266,4 @@ footer {
   padding: 15px;
   font-size: 14px;
 }
+
