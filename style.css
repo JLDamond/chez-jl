@@ -1,156 +1,234 @@
-/* ===================================================
-   CONFIGURATION DESIGN MAQUETTE BANDEAU BRICOLAGE
-=================================================== */
+/* =========================
+   BASE GÉNÉRALE
+========================= */
 
-/* Style global du header selon votre image */
-.header-bricolage-unique {
-  background-color: #c9a36a; /* Couleur marron/beige de la maquette */
-  padding: 15px 20px 30px 20px;
-  text-align: center;
-  color: white;
+* {
+  box-sizing: border-box;
 }
 
-/* Positionnement du bouton de retour tout en haut au centre */
-.navigation-superieure {
-  margin-bottom: 20px;
-}
-
-.btn-retour-maquette {
-  display: inline-block;
-  background-color: #f5efe6; /* Couleur de fond claire comme sur l'image */
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  background: #f5efe6;
   color: #2b1d0f;
-  padding: 8px 24px;
-  border-radius: 12px; /* Coins très arrondis style pilule */
-  font-weight: bold;
-  font-size: 14px;
-  text-decoration: none;
-  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
 }
 
-/* Alignement parfait des deux figurines et du texte au centre */
-.header-centre-maquette {
+h1, h2, h3 {
+  margin: 0 0 15px 0;
+}
+
+p {
+  line-height: 1.6;
+  margin: 0;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+/* =========================
+   HEADER / BANDEAU SUPÉRIEUR
+========================= */
+
+header {
+  padding: 25px 20px 35px;
+  text-align: center;
+  position: relative;
+}
+
+/* Conteneur figurine + texte */
+.header-centre {
   display: flex;
-  align-items: center;
+  align-items: center;              /* centrage vertical parfait */
   justify-content: center;
-  gap: 30px; /* Espace entre les figurines et le texte */
-  max-width: 800px;
+  gap: 20px;
+  max-width: 1000px;
   margin: 0 auto;
 }
 
-.header-texte-maquette h1 {
-  font-size: 32px;
-  margin: 0 0 5px 0;
-  font-weight: bold;
-}
-
-.header-texte-maquette p {
-  font-size: 18px;
+/* Texte dans le bandeau */
+.header-texte h1,
+.header-texte p {
   margin: 0;
-  opacity: 0.9;
-}
-
-/* Taille et comportement des deux figurines */
-.figurine-maquette {
-  height: 85px;
-  width: auto;
-}
-
-/* Style de la page de formulaire pour correspondre aux autres pages */
-body.form-bricolage-page main {
-  max-width: 900px;
-  margin: 40px auto;
-  background: white;
-  padding: 30px;
-  border-radius: 8px;
-}
-
-/* Responsive pour les petits écrans (mobiles) */
-@media (max-width: 600px) {
-  .header-centre-maquette {
-    gap: 10px;
-  }
-  .figurine-maquette {
-    height: 60px; /* On réduit la taille des bonhommes sur mobile */
-  }
-  .header-texte-maquette h1 {
-    font-size: 26px;
-  }
-}
-/* ===================================================
-   CONFIGURATION DESIGN MAQUETTE BANDEAU BRICOLAGE
-=================================================== */
-
-/* Style global du header selon votre image */
-.header-bricolage-unique {
-  background-color: #c9a36a; /* Couleur marron/beige de la maquette */
-  padding: 15px 20px 30px 20px;
-  text-align: center;
   color: white;
 }
 
-/* Positionnement du bouton de retour tout en haut au centre */
-.navigation-superieure {
-  margin-bottom: 20px;
+/* =========================
+   FIGURINE
+========================= */
+
+.figurine {
+  height: 90px;                     /* taille moyenne */
+  width: auto;
+  max-height: 60%;
+  pointer-events: none;
 }
 
-.btn-retour-maquette {
+/* Responsive figurine */
+@media (max-width: 700px) {
+  .figurine {
+    height: 70px;
+  }
+}
+
+/* =========================
+   BOUTON ACCUEIL / RETOUR
+========================= */
+
+.btn-retour {
   display: inline-block;
-  background-color: #f5efe6; /* Couleur de fond claire comme sur l'image */
+  background: rgba(255,255,255,0.65);
+  padding: 10px 22px;
+  border-radius: 14px;
+  font-weight: 900;                 /* flèche forte */
+  font-size: 15px;
   color: #2b1d0f;
-  padding: 8px 24px;
-  border-radius: 12px; /* Coins très arrondis style pilule */
-  font-weight: bold;
-  font-size: 14px;
-  text-decoration: none;
-  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+  margin-bottom: 18px;
 }
 
-/* Alignement parfait des deux figurines et du texte au centre */
-.header-centre-maquette {
+/* =========================
+   COULEURS DES BANDEAUX
+========================= */
+
+.page-accueil header {
+  background: #7fcfc7;              /* vert pastel */
+}
+
+.page-bricolage header {
+  background: #c9a36a;
+}
+
+.page-maison header {
+  background: #9ec9a3;
+}
+
+.page-electricite header {
+  background: #c45a4a;
+}
+
+.page-creation header {
+  background: #b6a4d8;
+}
+
+.page-objets-anciens header {
+  background: #7fb3d5;
+}
+
+.page-mecanique header {
+  background: #6f6f6f;
+}
+
+.page-jardinage header {
+  background: #8fbf8f;
+}
+
+.page-couture header {
+  background: #c8a2c8;
+}
+
+/* =========================
+   MENU ACCUEIL (INDEX)
+========================= */
+
+.menu-principal {
+  margin-top: 20px;
+}
+
+.menu-deux-lignes {
   display: flex;
-  align-items: center;
+  flex-wrap: wrap;
   justify-content: center;
-  gap: 30px; /* Espace entre les figurines et le texte */
-  max-width: 800px;
-  margin: 0 auto;
+  gap: 12px;
 }
 
-.header-texte-maquette h1 {
-  font-size: 32px;
-  margin: 0 0 5px 0;
+/* Boutons accueil type "bulle" */
+.menu-deux-lignes a {
+  background: rgba(255,255,255,0.25);
+  padding: 10px 18px;
+  border-radius: 20px;
   font-weight: bold;
+  color: white;
+  min-width: 180px;
+  text-align: center;
 }
 
-.header-texte-maquette p {
-  font-size: 18px;
-  margin: 0;
+/* =========================
+   CONTENU PRINCIPAL
+========================= */
+
+main {
+  max-width: 900px;
+  margin: auto;
+  background: white;
+  padding: 30px;
+}
+
+/* Séparateur */
+.separation {
+  border: none;
+  border-top: 1px solid #ddd;
+  margin: 25px 0;
+}
+
+/* =========================
+   BOUTONS GÉNÉRAUX
+========================= */
+
+.btn {
+  display: inline-block;
+  background: #2b1d0f;
+  color: #ffffff;
+  padding: 12px 22px;
+  border-radius: 14px;
+  font-size: 16px;
+  font-weight: bold;
+  cursor: pointer;
+  border: none;
+}
+
+.btn:hover {
   opacity: 0.9;
 }
 
-/* Taille et comportement des deux figurines */
-.figurine-maquette {
-  height: 85px;
-  width: auto;
+/* =========================
+   FORMULAIRES
+========================= */
+
+textarea,
+input[type="text"],
+input[type="email"],
+input[type="url"] {
+  width: 100%;
+  padding: 10px;
+  margin: 8px 0 20px 0;
+  border: 1px solid #ccc;
+  border-radius: 6px;
 }
 
-/* Style de la page de formulaire pour correspondre aux autres pages */
-body.form-bricolage-page main {
-  max-width: 900px;
-  margin: 40px auto;
-  background: white;
-  padding: 30px;
-  border-radius: 8px;
+.themes {
+  margin-bottom: 35px;              /* espace avant "Vidéo" */
 }
 
-/* Responsive pour les petits écrans (mobiles) */
-@media (max-width: 600px) {
-  .header-centre-maquette {
-    gap: 10px;
-  }
-  .figurine-maquette {
-    height: 60px; /* On réduit la taille des bonhommes sur mobile */
-  }
-  .header-texte-maquette h1 {
-    font-size: 26px;
-  }
+.themes label {
+  display: inline-block;
+  margin-right: 14px;
 }
+
+/* Bouton envoyer = même style que retour */
+.form-actions .btn {
+  background: rgba(255,255,255,0.65);
+  color: #2b1d0f;
+  font-weight: 900;
+}
+
+/* =========================
+   FOOTER
+========================= */
+
+footer {
+  background: #ddd;
+  text-align: center;
+  padding: 15px;
+  font-size: 14px;
+} 
