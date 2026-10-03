@@ -1,4 +1,4 @@
-/* =========================
+//* =========================
    BASE GÉNÉRALE
 ========================= */
 
@@ -32,13 +32,13 @@ a {
 ========================= */
 
 body.form-mecanique {
-  /* Application de l'image de fond figurine */
+  /* Application de votre image en fond d'écran sur toute la page */
   background: url("figurine-page mecano.png") no-repeat center center fixed;
   background-size: cover;
 }
 
 body.form-mecanique header {
-  background: #6f6f6f; /* Anthracite pastel */
+  background: #6f6f6f; /* Anthracite pastel identique à la page Mécanique */
   color: white;
   text-align: center;
   padding: 20px;
@@ -48,7 +48,7 @@ body.form-mecanique .btn-retour {
   display: inline-block;
   margin-bottom: 12px;
   text-decoration: none;
-  background: rgba(255, 255, 255, 0.8);
+  background: rgba(255, 255, 255, 0.8); /* Fond blanc semi-transparent */
   color: #2b1d0f;
   font-weight: bold;
   padding: 8px 14px;
@@ -58,7 +58,7 @@ body.form-mecanique .btn-retour {
 body.form-mecanique main {
   max-width: 900px;
   margin: 40px auto;
-  background: rgba(255, 255, 255, 0.95); /* Blanc semi-transparent */
+  background: rgba(255, 255, 255, 0.95); /* Blanc semi-transparent pour l'élégance */
   padding: 30px;
   border-radius: 8px;
   box-shadow: 0 4px 15px rgba(0, 0, 0, 0.15);
@@ -127,7 +127,7 @@ header {
 }
 
 /* =========================
-   BOUTONS DE RETOUR
+   BOUTONS DE RETOUR PAR DÉFAUT
 ========================= */
 
 .btn-retour {
@@ -170,30 +170,31 @@ header {
   gap: 12px;
 }
 
-/* Style de base des bulles du menu */
-.menu-deux-lignes a {
+/* Style de base des bulles de navigation du menu principal */
+.menu-deux-lignes a.btn {
   background: rgba(255,255,255,0.25);
   padding: 10px 18px;
   border-radius: 20px;
   font-weight: bold;
-  color: white;
+  color: white !important;
   min-width: 180px;
   text-align: center;
   transition: background 0.2s, transform 0.1s;
+  display: inline-block;
 }
 
-.menu-deux-lignes a:hover {
+.menu-deux-lignes a.btn:hover {
   background: rgba(255,255,255,0.4);
 }
 
-/* 🟢 STYLE UNIQUE POUR LE NOUVEAU BOUTON PAGE MÉCANO SUR L'ACCUEIL */
+/* 🟢 CORRECTION EXCLUSION : STYLE DU BOUTON FORMULAIRE MÉCANO SUR L'ACCUEIL */
 .menu-deux-lignes a.btn-form-mecano-menu {
-  background: #6f6f6f; /* Anthracite distinctif */
+  background: #6f6f6f !important; /* Gris anthracite de l'univers mécanique */
   border: 2px solid white;
 }
 
 .menu-deux-lignes a.btn-form-mecano-menu:hover {
-  background: #4e4e4e;
+  background: #4e4e4e !important;
 }
 
 /* =========================
@@ -213,6 +214,7 @@ main {
   margin: 25px 0;
 }
 
+/* Style pour les boutons d'envoi et génériques hors menu */
 .btn, button[type="submit"] {
   display: inline-block;
   background: #2b1d0f;
