@@ -6,48 +6,64 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="style.css">
 </head>
-<body class="form-bricolage">
+<body class="form-bricolage-page">
 
-<header>
-  <a href="bricolage.html" class="btn-retour">⬅ Retour</a>
-  <h1>chez-JL</h1>
-  <p>Proposer une astuce Bricolage</p>
+<header class="header-bricolage-unique">
+  <!-- Bouton Retour / Accueil centré tout en haut -->
+  <div class="navigation-superieure">
+    <a href="bricolage.html" class="btn-retour-maquette">⬅ Accueil</a>
+  </div>
+
+  <!-- Conteneur centré avec les deux figurines encadrant le texte -->
+  <div class="header-centre-maquette">
+    <img src="images/figurine-bricolage.png" alt="Figurine gauche" class="figurine-maquette">
+    
+    <div class="header-texte-maquette">
+      <h1>chez-JL</h1>
+      <p>Astuces bricolage</p>
+    </div>
+    
+    <img src="images/figurine-bricolage.png" alt="Figurine droite" class="figurine-maquette">
+  </div>
 </header>
 
 <main>
-<form action="https://formspree.io/f/TON_ID_FORM" method="POST">
-  <input type="hidden" name="origine" value="Bricolage">
+  <form action="https://formspree.io" method="POST">
+    <input type="hidden" name="origine" value="Bricolage">
 
-  <h2>Description de l’astuce</h2>
-  <textarea name="description" rows="5" required placeholder="Explique ton astuce bricolage"></textarea>
+    <h2>Description de l’astuce</h2>
+    <textarea name="description" rows="5" required placeholder="Explique ton astuce bricolage"></textarea>
 
-  <h2>Thèmes</h2>
-  <div class="themes">
-    <label><input type="checkbox" name="themes" value="Maison"> Maison</label>
-    <label><input type="checkbox" name="themes" value="Réparation"> Réparation</label>
-    <label><input type="checkbox" name="themes" value="Récupération"> Récupération</label>
-    <label><input type="checkbox" name="themes" value="Autre"> Autre</label>
-  </div>
+    <h2>Thèmes</h2>
+    <div class="themes">
+      <label><input type="checkbox" name="themes" value="Maison"> Maison</label>
+      <label><input type="checkbox" name="themes" value="Réparation"> Réparation</label>
+      <label><input type="checkbox" name="themes" value="Récupération"> Récupération</label>
+      <label><input type="checkbox" name="themes" value="Autre"> Autre</label>
+    </div>
 
-  <h2>Vidéo (facultatif)</h2>
-  <input type="url" name="video" placeholder="Lien YouTube ou Vimeo">
+    <h2>Vidéo (facultatif)</h2>
+    <input type="url" name="video" placeholder="Lien YouTube ou Vimeo">
 
-  <h2>Images (liens)</h2>
-  <input type="url" name="image1" placeholder="Lien image 1">
-  <input type="url" name="image2" placeholder="Lien image 2 (optionnel)">
+    <h2>Images (liens)</h2>
+    <input type="url" name="image1" placeholder="Lien image 1">
+    <input type="url" name="image2" placeholder="Lien image 2 (optionnel)">
 
-  <h2>Contact (facultatif)</h2>
-  <input type="text" name="nom" placeholder="Nom ou pseudo">
-  <input type="email" name="email" placeholder="Email">
+    <h2>Contact (facultatif)</h2>
+    <input type="text" name="nom" placeholder="Nom ou pseudo">
+    <input type="email" name="email" placeholder="Email">
 
-  <input type="hidden" name="_redirect" value="https://chez-jl.com/merci.html">
+    <input type="hidden" name="_redirect" value="https://chez-jl.com">
 
-  <button type="submit">Envoyer mon astuce</button>
-</form>
+    <button type="submit">Envoyer mon astuce</button>
+  </form>
 </main>
 
 <footer>
   © chez-JL – Tous droits réservés
 </footer>
+
 </body>
+</html>
+y>
 </html>
