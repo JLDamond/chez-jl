@@ -76,3 +76,81 @@ body.form-bricolage-page main {
     font-size: 26px;
   }
 }
+/* ===================================================
+   CONFIGURATION DESIGN MAQUETTE BANDEAU BRICOLAGE
+=================================================== */
+
+/* Style global du header selon votre image */
+.header-bricolage-unique {
+  background-color: #c9a36a; /* Couleur marron/beige de la maquette */
+  padding: 15px 20px 30px 20px;
+  text-align: center;
+  color: white;
+}
+
+/* Positionnement du bouton de retour tout en haut au centre */
+.navigation-superieure {
+  margin-bottom: 20px;
+}
+
+.btn-retour-maquette {
+  display: inline-block;
+  background-color: #f5efe6; /* Couleur de fond claire comme sur l'image */
+  color: #2b1d0f;
+  padding: 8px 24px;
+  border-radius: 12px; /* Coins très arrondis style pilule */
+  font-weight: bold;
+  font-size: 14px;
+  text-decoration: none;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+/* Alignement parfait des deux figurines et du texte au centre */
+.header-centre-maquette {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 30px; /* Espace entre les figurines et le texte */
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.header-texte-maquette h1 {
+  font-size: 32px;
+  margin: 0 0 5px 0;
+  font-weight: bold;
+}
+
+.header-texte-maquette p {
+  font-size: 18px;
+  margin: 0;
+  opacity: 0.9;
+}
+
+/* Taille et comportement des deux figurines */
+.figurine-maquette {
+  height: 85px;
+  width: auto;
+}
+
+/* Style de la page de formulaire pour correspondre aux autres pages */
+body.form-bricolage-page main {
+  max-width: 900px;
+  margin: 40px auto;
+  background: white;
+  padding: 30px;
+  border-radius: 8px;
+}
+
+/* Responsive pour les petits écrans (mobiles) */
+@media (max-width: 600px) {
+  .header-centre-maquette {
+    gap: 10px;
+  }
+  .figurine-maquette {
+    height: 60px; /* On réduit la taille des bonhommes sur mobile */
+  }
+  .header-texte-maquette h1 {
+    font-size: 26px;
+  }
+}
