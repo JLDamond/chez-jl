@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <title>Accueil – chez-JL</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body class="page-accueil">
+
+<header>
+  <h1>chez-JL</h1>
+  <p>Découvrez et partagez vos meilleures astuces du quotidien</p>
+  
+  <!-- Menu principal contenant les boutons en bulles -->
+  <div class="menu-principal">
+    <div class="menu-deux-lignes">
+      <a href="bricolage.html" class="btn-bricolage-menu">Bricolage</a>
+      <a href="maison.html" class="btn-maison-menu">Maison</a>
+      <a href="electricite.html" class="btn-electricite-menu">Électricité</a>
+      <a href="creation.html" class="btn-creation-menu">Création</a>
+      <a href="objets-anciens.html" class="btn-objets-menu">Objets Anciens</a>
+      <a href="mecanique.html" class="btn-mecanique-menu">Mécanique</a>
+      <a href="jardinage.html" class="btn-jardinage-menu">Jardinage</a>
+      <a href="couture.html" class="btn-couture-menu">Couture</a>
+      
+      <!-- 🟢 NOUVEAU BOUTON : Accès direct au formulaire mécano -->
+      <a href="formulaire-mecanique.html" class="btn-form-mecano-menu">🔧 Proposer une astuce Mécanique</a>
+    </div>
+  </div>
+</header>
+
+<main>
+  <h2>Bienvenue chez-JL</h2>
+  <p>Sélectionnez une catégorie ci-dessus pour explorer les astuces ou partager vos propres connaissances avec la communauté.</p>
+</main>
+
+<footer>
+  © chez-JL – Tous droits réservés
+</footer>
+
+</body>
+</html>
