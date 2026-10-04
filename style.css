@@ -119,6 +119,11 @@ header {
   background: #6f6f6f;
 }
 
+/* 🟢 MODIFICATION : COULEUR POUR LA NOUVELLE PAGE MÉCANO */
+.page-mecano header {
+  background: #555555;
+}
+
 .page-jardinage header {
   background: #8fbf8f;
 }
@@ -151,6 +156,13 @@ header {
   color: white;
   min-width: 180px;
   text-align: center;
+}
+
+/* 🟢 MODIFICATION : DESIGN COMPATIBLE GLOBAL POUR LE BOUTON MÉCANO SUR L'ACCUEIL */
+.menu-deux-lignes a.btn-mecano-special {
+  background: #2b1d0f;
+  color: #ffffff;
+  border-radius: 20px;
 }
 
 /* =========================
@@ -231,4 +243,4 @@ footer {
   text-align: center;
   padding: 15px;
   font-size: 14px;
-} 
+}
