@@ -159,8 +159,7 @@ header {
 }
 
 /* 🟢 MODIFICATION : DESIGN COMPATIBLE GLOBAL POUR LE BOUTON MÉCANO SUR L'ACCUEIL */
-.menu-deux-lignes a
-.btn-mecano-special {
+.menu-deux-lignes a.btn-mecano-special {
   background: #2b1d0f;
   color: #ffffff;
   border-radius: 20px;
