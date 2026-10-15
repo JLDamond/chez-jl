@@ -294,6 +294,35 @@ body.page-acces-astuces main {
   background: #e2d7c7;
 }
 
+/* ========================
+   BOUTON ESPACE ASTUCES
+   ======================== */
+.bouton-astuces {
+    display: inline-block;
+    text-decoration: none;
+    background-color: #007bff;
+    color: #ffffff;
+    font-weight: 600;
+    font-size: 16px;
+    padding: 14px 28px;
+    border-radius: 8px;
+    transition: all 0.2s ease-in-out;
+    cursor: pointer;
+    position: relative;
+    z-index: 999;
+}
+
+.bouton-astuces:hover {
+    background-color: #0056b3;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 10px rgba(0, 123, 255, 0.3);
+}
+
+.bouton-astuces:active {
+    transform: translateY(0);
+}
+
+
 .group-filtres input[type="checkbox"] {
   width: 18px;
   height: 18px;
