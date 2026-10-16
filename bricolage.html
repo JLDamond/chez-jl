@@ -2,121 +2,46 @@
 <html lang="fr">
 <head>
   <meta charset="UTF-8">
-  <title>Proposer une astuce Bricolage – chez-JL</title>
+  <title>Bricolage – chez-JL</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="style.css">
-  <style>
-    /* Styles spécifiques pour ce formulaire alignés sur le modèle "Maison" */
-    body.form-bricolage header {
-      background: #c9a36a; /* Couleur marron/ocre définie pour le bandeau bricolage dans votre style.css */
-      color: white;
-      text-align: center;
-      padding: 20px;
-    }
-
-    .btn-retour {
-      display: inline-block;
-      margin-bottom: 12px;
-      text-decoration: none;
-      background: rgba(255, 255, 255, 0.5);
-      color: #2b1d0f;
-      font-weight: bold;
-      padding: 8px 14px;
-      border-radius: 5px;
-    }
-
-    main {
-      max-width: 900px;
-      margin: auto;
-      background: #fff;
-      padding: 30px;
-    }
-
-    textarea,
-    input[type="text"],
-    input[type="email"],
-    input[type="url"] {
-      width: 100%;
-      padding: 10px;
-      margin: 8px 0 16px 0;
-      border: 1px solid #ccc;
-      border-radius: 4px;
-    }
-
-    .themes label {
-      display: inline-block;
-      margin-right: 12px;
-    }
-
-    button {
-      background: #2b1d0f;
-      color: #fff;
-      padding: 12px 20px;
-      border-radius: 5px;
-      border: none;
-      font-size: 16px;
-      font-weight: bold;
-      cursor: pointer;
-    }
-
-    footer {
-      background: #ddd;
-      text-align: center;
-      padding: 15px;
-      font-size: 14px;
-    }
-  </style>
 </head>
 
-<body class="form-bricolage">
+<body class="page-bricolage">
 
 <header>
-  <!-- Le bouton de retour pointe vers la page d'accueil principale index.html -->
-  <a href="index.html" class="btn-retour">⬅ Retour</a>
-  <h1>chez-JL</h1>
-  <p>Proposer une astuce Bricolage</p>
+
+  <a href="index.html" class="btn-retour">⬅ Accueil</a>
+
+  <div class="header-centre">
+
+    <img src="images/figurine-bricolage.png"
+         alt="Figurine bricolage"
+         class="figurine">
+
+    <div class="header-texte">
+      <h1>chez-JL</h1>
+      <p>Bricolage & réparations</p>
+    </div>
+
+  </div>
+
 </header>
 
 <main>
 
-<form action="https://formspree.io/f/TON_ID_FORM" method="POST">
-  
-  <!-- Origine pour identifier la page dans vos reçus Formspree -->
-  <input type="hidden" name="origine" value="Bricolage">
+  <section>
+    <h2>Bricolage et savoir-faire</h2>
+    <p>
+      Partagez vos idées, techniques et réalisations de bricolage.
+    </p>
+  </section>
 
-  <!-- Description obligatoire -->
-  <h2>Description de l’astuce</h2>
-  <textarea name="description" rows="5" required
-    placeholder="Explique ton astuce bricolage en au moins 3 lignes (quoi, comment, pourquoi)"></textarea>
+  <hr class="separation">
 
-  <!-- Thèmes -->
-  <h2>Thèmes</h2>
-  <div class="themes">
-    <label><input type="checkbox" name="themes" value="Maison"> Maison</label>
-    <label><input type="checkbox" name="themes" value="Réparation"> Réparation</label>
-    <label><input type="checkbox" name="themes" value="Récupération"> Récupération</label>
-    <label><input type="checkbox" name="themes" value="Autre"> Autre</label>
-  </div>
-
-  <!-- Vidéo facultative -->
-  <h2>Vidéo (facultatif)</h2>
-  <input type="url" name="video" placeholder="Lien YouTube ou Vimeo">
-
-  <!-- Images facultatives -->
-  <h2>Images (liens)</h2>
-  <input type="url" name="image1" placeholder="Lien image 1 (JPG, PNG, WEBP)">
-  <input type="url" name="image2" placeholder="Lien image 2 (optionnel)">
-
-  <!-- Contact facultatif -->
-  <h2>Contact (facultatif)</h2>
-  <input type="text" name="nom" placeholder="Nom ou pseudo">
-  <input type="email" name="email" placeholder="Email">
-
-  <!-- Redirection après soumission -->
-  <input type="hidden" name="_redirect" value="https://chez-jl.com/merci.html">
-
-  <button type="submit">Envoyer mon astuce</button>
-</form>
+  <a href="proposer-bricolage.html" class="btn">
+    Proposer une astuce
+  </a>
 
 </main>
 
