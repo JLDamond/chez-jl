@@ -5,6 +5,83 @@
   <title>Accès aux Astuces – chez-JL</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="style.css">
+  <style>
+    /* Centrage propre du titre sans la mascotte */
+    .bandeau-titre {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      padding: 20px;
+    }
+
+    /* Mise en page nettoyée du menu */
+    .bandeau-menu {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 10px 20px;
+    }
+
+    .btn-retour {
+      min-width: auto;
+      padding: 5px 15px;
+    }
+
+    .selecteur-langue label {
+      color: white;
+      font-weight: bold;
+      margin-right: 8px;
+    }
+
+    .selecteur-langue select {
+      padding: 5px;
+      border-radius: 5px;
+    }
+
+    .btn-recherche {
+      margin-top: 20px;
+      width: 100%;
+    }
+
+    /* Styles de la zone de résultats */
+    .zone-resultats {
+      margin-top: 30px;
+    }
+
+    .message-vide {
+      text-align: center;
+      color: #666;
+    }
+
+    .carte-astuce {
+      background: #f9f9f9;
+      padding: 15px;
+      border-left: 5px solid #6f6f6f;
+      margin-bottom: 15px;
+      border-radius: 4px;
+    }
+
+    .carte-astuce.bricolage { border-left-color: #c9a36a; }
+    .carte-astuce.mecanique { border-left-color: #6f6f6f; }
+    .carte-astuce.maison { border-left-color: #4a90e2; }
+    .carte-astuce.electricite { border-left-color: #f5a623; }
+    .carte-astuce.jardinage { border-left-color: #7ed321; }
+
+    .carte-astuce a {
+      color: #0056b3;
+      text-decoration: underline;
+    }
+
+    .btn-musique {
+      background: none;
+      border: none;
+      cursor: pointer;
+      margin-left: 15px;
+      color: inherit;
+      font-family: inherit;
+    }
+  </style>
 </head>
 <body class="page-acces-astuces">
 
@@ -16,20 +93,19 @@
 
   <header class="header-accueil">
     <div class="bandeau-titre">
-      <img src="images/figurine-mascotte.png" alt="Mascotte chez-JL" class="figurine">
       <div class="header-texte">
         <h1>chez-JL</h1>
         <p>Espace Consultation des Astuces</p>
       </div>
     </div>
 
-    <!-- Sélecteur de Langue & Retour (Ligne 29 à 39) -->
-    <div class="bandeau-menu" style="display: flex; justify-content: space-between; align-items: center; padding: 10px 20px;">
-      <a href="index.html" class="btn" style="min-width: auto; padding: 5px 15px;">⬅ Accueil</a>
+    <!-- Sélecteur de Langue & Retour -->
+    <div class="bandeau-menu">
+      <a href="index.html" class="btn btn-retour">⬅ Accueil</a>
       
       <div class="selecteur-langue">
-        <label for="langue" style="color: white; font-weight: bold; margin-right: 8px;">🌐 Langue :</label>
-        <select id="langue" onchange="changerLangue(this.value)" style="padding: 5px; border-radius: 5px;">
+        <label for="langue">🌐 Langue :</label>
+        <select id="langue" onchange="changerLangue(this.value)">
           <option value="fr">Français</option>
           <option value="en">English</option>
           <option value="es">Español</option>
@@ -64,29 +140,73 @@
           <label><input type="checkbox" name="media" value="message"> 💬 Messages des internautes</label>
         </div>
 
-        <button type="button" class="btn" onclick="filtrerAstuces()" style="margin-top: 20px; width: 100%;">Rechercher les contributions</button>
+        <button type="button" class="btn btn-recherche" onclick="filtrerAstuces()">Rechercher les contributions</button>
       </form>
     </section>
 
-    <!-- Zone d'affichage des résultats simulés -->
-    <section class="zone-resultats" style="margin-top: 30px;">
+    <!-- Zone d'affichage des résultats -->
+    <section class="zone-resultats">
       <h2>📋 Dernières contributions reçues</h2>
       <div id="liste-astuces-flux">
-        <p style="text-align: center; color: #666;">Sélectionnez vos critères ci-dessus pour charger le flux des internautes.</p>
+        <p class="message-vide">Sélectionnez vos critères ci-dessus pour charger le flux des internautes.</p>
       </div>
     </section>
   </main>
 
   <footer>
     © chez-JL – Tous droits réservés
-    <button id="btn-musique" onclick="toggleAudio()" style="background: none; border: none; cursor: pointer; margin-left: 15px; color: inherit; font-family: inherit;">🎵 Activer la musique</button>
+    <button id="btn-musique" class="btn-musique" onclick="toggleAudio()">🎵 Activer la musique</button>
   </footer>
 
   <script>
-    // Script corrigé pour l'interrupteur Play / Pause (Lignes 85 à 96)
+    // Base d'exemples pour le filtrage dynamique
+    const astucesDisponibles = [
+      {
+        auteur: "Jean-Pierre",
+        categorie: "mecanique",
+        categorieLabel: "Mécanique",
+        media: "video",
+        mediaLabel: "Vidéo",
+        texte: "Vidange facile sur tondeuse sans pompe.",
+        lienTexte: "Voir la vidéo YouTube",
+        url: "#"
+      },
+      {
+        auteur: "Marie83",
+        categorie: "bricolage",
+        categorieLabel: "Bricolage",
+        media: "image",
+        mediaLabel: "Image",
+        texte: "Restauration d'une table basse en palette.",
+        lienTexte: "Voir l'image jointe",
+        url: "#"
+      },
+      {
+        auteur: "Luc_Jardin",
+        categorie: "jardinage",
+        categorieLabel: "Jardin",
+        media: "texte",
+        mediaLabel: "Texte",
+        texte: "Astuce naturelle contre les pucerons avec du savon noir.",
+        lienTexte: "",
+        url: ""
+      },
+      {
+        auteur: "ElectroPro",
+        categorie: "electricite",
+        categorieLabel: "Électricité",
+        media: "message",
+        mediaLabel: "Message",
+        texte: "Pensez toujours à couper le disjoncteur général avant de tester un va-et-vient.",
+        lienTexte: "",
+        url: ""
+      }
+    ];
+
+    // Interrupteur Play / Pause
     function toggleAudio() {
-      var audio = document.getElementById('audio-ambiance');
-      var bouton = document.getElementById('btn-musique');
+      const audio = document.getElementById('audio-ambiance');
+      const bouton = document.getElementById('btn-musique');
       
       if (audio.paused) { 
         audio.play(); 
@@ -97,24 +217,39 @@
       }
     }
     
-    // Changement de langue fictif pour la structure
+    // Changement de langue
     function changerLangue(lang) {
       alert("Changement de langue vers : " + lang.toUpperCase());
     }
 
-    // Gestion de la nomenclature
+    // Filtrage réel selon les cases cochées
     function filtrerAstuces() {
-      var conteneur = document.getElementById('liste-astuces-flux');
-      conteneur.innerHTML = `
-        <div style="background: #f9f9f9; padding: 15px; border-left: 5px solid #6f6f6f; margin-bottom: 15px; border-radius: 4px;">
-          <strong>Jean-Pierre (Mécanique - Vidéo) :</strong> "Vidange facile sur tondeuse sans pompe." <br>
-          <a href="#" style="color: blue; text-decoration: underline;">Voir la vidéo YouTube</a>
+      const conteneur = document.getElementById('liste-astuces-flux');
+      
+      // Récupérer les catégories cochées
+      const catsCochees = Array.from(document.querySelectorAll('input[name="categorie"]:checked')).map(cb => cb.value);
+      // Récupérer les médias cochés
+      const mediasCoches = Array.from(document.querySelectorAll('input[name="media"]:checked')).map(cb => cb.value);
+
+      // Filtrer la liste (si rien n'est coché dans un groupe, on affiche tout pour ce groupe)
+      const resultats = astucesDisponibles.filter(astuce => {
+        const matchCat = catsCochees.length === 0 || catsCochees.includes(astuce.categorie);
+        const matchMedia = mediasCoches.length === 0 || mediasCoches.includes(astuce.media);
+        return matchCat && matchMedia;
+      });
+
+      // Affichage
+      if (resultats.length === 0) {
+        conteneur.innerHTML = '<p class="message-vide">Aucune astuce ne correspond exactement à ces critères.</p>';
+        return;
+      }
+
+      conteneur.innerHTML = resultats.map(item => `
+        <div class="carte-astuce ${item.categorie}">
+          <strong>${item.auteur} (${item.categorieLabel} - ${item.mediaLabel}) :</strong> "${item.texte}"
+          ${item.lienTexte ? `<br><a href="${item.url}">${item.lienTexte}</a>` : ''}
         </div>
-        <div style="background: #f9f9f9; padding: 15px; border-left: 5px solid #c9a36a; margin-bottom: 15px; border-radius: 4px;">
-          <strong>Marie83 (Bricolage - Image) :</strong> "Restauration d'une table basse en palette." <br>
-          <a href="#" style="color: blue; text-decoration: underline;">Voir l'image jointe</a>
-        </div>
-      `;
+      `).join('');
     }
   </script>
 </body>
