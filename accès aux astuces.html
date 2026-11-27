@@ -155,7 +155,9 @@
     <!-- Zone d'affichage des résultats -->
     <section class="zone-resultats">
       <h2 id="txt-titre-resultats">📋 Dernières contributions reçues</h2>
-      <div id="liste-astuces-flux"></div>
+      <div id="liste-astuces-flux">
+        <p class="message-vide" id="txt-msg-initial">Sélectionnez vos critères ci-dessus pour charger le flux des internautes.</p>
+      </div>
     </section>
   </main>
 
@@ -166,6 +168,7 @@
 
   <script>
     let langueActuelle = 'fr';
+    let aDejaRecherche = false;
 
     // Dictionnaire complet de traduction (FR, EN, ES, DE, AR, YI)
     const traductions = {
@@ -189,6 +192,7 @@
         medMessage: "💬 Messages des internautes",
         btnRecherche: "Rechercher les contributions",
         titreResultats: "📋 Dernières contributions reçues",
+        msgInitial: "Sélectionnez vos critères ci-dessus pour charger le flux des internautes.",
         aucunResultat: "Aucune astuce ne correspond exactement à ces critères.",
         footer: "© chez-JL – Tous droits réservés",
         musiqueOn: "🎵 Activer la musique",
@@ -214,6 +218,7 @@
         medMessage: "💬 User Messages",
         btnRecherche: "Search contributions",
         titreResultats: "📋 Latest contributions received",
+        msgInitial: "Select your criteria above to load the user feed.",
         aucunResultat: "No tip matches these exact criteria.",
         footer: "© chez-JL – All rights reserved",
         musiqueOn: "🎵 Turn on music",
@@ -239,6 +244,7 @@
         medMessage: "💬 Mensajes de usuarios",
         btnRecherche: "Buscar contribuciones",
         titreResultats: "📋 Últimas contribuciones recibidas",
+        msgInitial: "Seleccione sus criterios arriba para cargar las aportaciones.",
         aucunResultat: "Ningún truco coincide exactamente con estos criterios.",
         footer: "© chez-JL – Todos los derechos reservados",
         musiqueOn: "🎵 Activar música",
@@ -263,13 +269,4 @@
         medVideo: "🎬 Videos",
         medMessage: "💬 Nachrichten der Nutzer",
         btnRecherche: "Beiträge suchen",
-        titreResultats: "📋 Neueste eingegangene Beiträge",
-        aucunResultat: "Kein Tipp entspricht genau diesen Kriterien.",
-        footer: "© chez-JL – Alle Rechte vorbehalten",
-        musiqueOn: "🎵 Musik einschalten",
-        musiqueOff: "🎵 Musik ausschalten"
-      },
-      ar: {
-        dir: "rtl",
-        pageTitle: "الوصول إلى النصائح – chez-JL",
-        sousTitre: "مساحة استشارة النصائح والحيل",
+
