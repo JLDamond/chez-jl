@@ -85,9 +85,9 @@
 </head>
 <body class="page-acces-astuces">
 
-  <!-- Musique d'ambiance de secours (libre de droits) -->
-  <audio loop id="audio-ambiance">
-    <source src="https://soundhelix.com" type="audio/mp3">
+  <!-- Musique d'ambiance fonctionnelle (lien MP3 direct libre de droits) -->
+  <audio loop id="audio-ambiance" preload="none">
+    <source src="https://soundhelix.com" type="audio/mpeg">
     Votre navigateur ne supporte pas l'élément audio.
   </audio>
 
@@ -95,21 +95,23 @@
     <div class="bandeau-titre">
       <div class="header-texte">
         <h1>chez-JL</h1>
-        <p>Espace Consultation des Astuces</p>
+        <p id="txt-sous-titre">Espace Consultation des Astuces</p>
       </div>
     </div>
 
     <!-- Sélecteur de Langue & Retour -->
     <div class="bandeau-menu">
-      <a href="index.html" class="btn btn-retour">⬅ Accueil</a>
+      <a href="index.html" class="btn btn-retour" id="txt-retour">⬅ Accueil</a>
       
       <div class="selecteur-langue">
-        <label for="langue">🌐 Langue :</label>
+        <label for="langue" id="txt-label-langue">🌐 Langue :</label>
         <select id="langue" onchange="changerLangue(this.value)">
           <option value="fr">Français</option>
           <option value="en">English</option>
           <option value="es">Español</option>
           <option value="de">Deutsch</option>
+          <option value="ar">العربية (Arabe)</option>
+          <option value="yi">ייִדיש (Yiddish)</option>
         </select>
       </div>
     </div>
@@ -118,139 +120,156 @@
   <main>
     <!-- Nomenclature / Filtres de recherche -->
     <section class="section-filtres">
-      <h2>🔍 Quelle astuce vous intéresse ?</h2>
+      <h2 id="txt-titre-filtre">🔍 Quelle astuce vous intéresse ?</h2>
       <form id="form-filtres">
         
         <!-- Catégories d'astuces -->
-        <h3>Par Catégorie :</h3>
+        <h3 id="txt-par-cat">Par Catégorie :</h3>
         <div class="group-filtres">
-          <label><input type="checkbox" name="categorie" value="bricolage"> Bricolage</label>
-          <label><input type="checkbox" name="categorie" value="mecanique"> Mécanique</label>
-          <label><input type="checkbox" name="categorie" value="maison"> Maison & Quotidien</label>
-          <label><input type="checkbox" name="categorie" value="electricite"> Électricité</label>
-          <label><input type="checkbox" name="categorie" value="jardinage"> Jardin</label>
+          <label><input type="checkbox" name="categorie" value="bricolage" onchange="filtrerAstuces()"> <span id="lbl-cat-bricolage">Bricolage</span></label>
+          <label><input type="checkbox" name="categorie" value="mecanique" onchange="filtrerAstuces()"> <span id="lbl-cat-mecanique">Mécanique</span></label>
+          <label><input type="checkbox" name="categorie" value="maison" onchange="filtrerAstuces()"> <span id="lbl-cat-maison">Maison & Quotidien</span></label>
+          <label><input type="checkbox" name="categorie" value="electricite" onchange="filtrerAstuces()"> <span id="lbl-cat-electricite">Électricité</span></label>
+          <label><input type="checkbox" name="categorie" value="jardinage" onchange="filtrerAstuces()"> <span id="lbl-cat-jardinage">Jardin</span></label>
         </div>
 
         <!-- Types de contenus demandés -->
-        <h3>Par type de média :</h3>
+        <h3 id="txt-par-media">Par type de média :</h3>
         <div class="group-filtres">
-          <label><input type="checkbox" name="media" value="texte"> 📝 Astuces Textes</label>
-          <label><input type="checkbox" name="media" value="image"> 🖼️ Images envoyées</label>
-          <label><input type="checkbox" name="media" value="video"> 🎬 Vidéos</label>
-          <label><input type="checkbox" name="media" value="message"> 💬 Messages des internautes</label>
+          <label><input type="checkbox" name="media" value="texte" onchange="filtrerAstuces()"> <span id="lbl-med-texte">📝 Astuces Textes</span></label>
+          <label><input type="checkbox" name="media" value="image" onchange="filtrerAstuces()"> <span id="lbl-med-image">🖼️ Images envoyées</span></label>
+          <label><input type="checkbox" name="media" value="video" onchange="filtrerAstuces()"> <span id="lbl-med-video">🎬 Vidéos</span></label>
+          <label><input type="checkbox" name="media" value="message" onchange="filtrerAstuces()"> <span id="lbl-med-message">💬 Messages des internautes</span></label>
         </div>
 
-        <button type="button" class="btn btn-recherche" onclick="filtrerAstuces()">Rechercher les contributions</button>
+        <button type="button" class="btn btn-recherche" id="txt-btn-recherche" onclick="filtrerAstuces()">Rechercher les contributions</button>
       </form>
     </section>
 
     <!-- Zone d'affichage des résultats -->
     <section class="zone-resultats">
-      <h2>📋 Dernières contributions reçues</h2>
-      <div id="liste-astuces-flux">
-        <p class="message-vide">Sélectionnez vos critères ci-dessus pour charger le flux des internautes.</p>
-      </div>
+      <h2 id="txt-titre-resultats">📋 Dernières contributions reçues</h2>
+      <div id="liste-astuces-flux"></div>
     </section>
   </main>
 
   <footer>
-    © chez-JL – Tous droits réservés
+    <span id="txt-footer">© chez-JL – Tous droits réservés</span>
     <button id="btn-musique" class="btn-musique" onclick="toggleAudio()">🎵 Activer la musique</button>
   </footer>
 
   <script>
-    // Base d'exemples pour le filtrage dynamique
-    const astucesDisponibles = [
-      {
-        auteur: "Jean-Pierre",
-        categorie: "mecanique",
-        categorieLabel: "Mécanique",
-        media: "video",
-        mediaLabel: "Vidéo",
-        texte: "Vidange facile sur tondeuse sans pompe.",
-        lienTexte: "Voir la vidéo YouTube",
-        url: "#"
+    let langueActuelle = 'fr';
+
+    // Dictionnaire complet de traduction (FR, EN, ES, DE, AR, YI)
+    const traductions = {
+      fr: {
+        dir: "ltr",
+        sousTitre: "Espace Consultation des Astuces",
+        retour: "⬅ Accueil",
+        labelLangue: "🌐 Langue :",
+        titreFiltre: "🔍 Quelle astuce vous intéresse ?",
+        parCat: "Par Catégorie :",
+        catBricolage: "Bricolage",
+        catMecanique: "Mécanique",
+        catMaison: "Maison & Quotidien",
+        catElectricite: "Électricité",
+        catJardinage: "Jardin",
+        parMedia: "Par type de média :",
+        medTexte: "📝 Astuces Textes",
+        medImage: "🖼️ Images envoyées",
+        medVideo: "🎬 Vidéos",
+        medMessage: "💬 Messages des internautes",
+        btnRecherche: "Rechercher les contributions",
+        titreResultats: "📋 Dernières contributions reçues",
+        aucunResultat: "Aucune astuce ne correspond exactement à ces critères.",
+        footer: "© chez-JL – Tous droits réservés",
+        musiqueOn: "🎵 Activer la musique",
+        musiqueOff: "🎵 Couper la musique"
       },
-      {
-        auteur: "Marie83",
-        categorie: "bricolage",
-        categorieLabel: "Bricolage",
-        media: "image",
-        mediaLabel: "Image",
-        texte: "Restauration d'une table basse en palette.",
-        lienTexte: "Voir l'image jointe",
-        url: "#"
+      en: {
+        dir: "ltr",
+        sousTitre: "Tips & Tricks Consultation Area",
+        retour: "⬅ Home",
+        labelLangue: "🌐 Language:",
+        titreFiltre: "🔍 Which tip are you looking for?",
+        parCat: "By Category:",
+        catBricolage: "DIY",
+        catMecanique: "Mechanics",
+        catMaison: "Home & Daily Life",
+        catElectricite: "Electricity",
+        catJardinage: "Garden",
+        parMedia: "By media type:",
+        medTexte: "📝 Text Tips",
+        medImage: "🖼️ Sent Images",
+        medVideo: "🎬 Videos",
+        medMessage: "💬 User Messages",
+        btnRecherche: "Search contributions",
+        titreResultats: "📋 Latest contributions received",
+        aucunResultat: "No tip matches these exact criteria.",
+        footer: "© chez-JL – All rights reserved",
+        musiqueOn: "🎵 Turn on music",
+        musiqueOff: "🎵 Mute music"
       },
-      {
-        auteur: "Luc_Jardin",
-        categorie: "jardinage",
-        categorieLabel: "Jardin",
-        media: "texte",
-        mediaLabel: "Texte",
-        texte: "Astuce naturelle contre les pucerons avec du savon noir.",
-        lienTexte: "",
-        url: ""
+      es: {
+        dir: "ltr",
+        sousTitre: "Espacio de Consulta de Trucos",
+        retour: "⬅ Inicio",
+        labelLangue: "🌐 Idioma:",
+        titreFiltre: "🔍 ¿Qué truco te interesa?",
+        parCat: "Por Categoría:",
+        catBricolage: "Bricolaje",
+        catMecanique: "Mecánica",
+        catMaison: "Hogar y Vida Diaria",
+        catElectricite: "Electricidad",
+        catJardinage: "Jardín",
+        parMedia: "Por tipo de medio:",
+        medTexte: "📝 Trucos en Texto",
+        medImage: "🖼️ Imágenes enviadas",
+        medVideo: "🎬 Vídeos",
+        medMessage: "💬 Mensajes de usuarios",
+        btnRecherche: "Buscar contribuciones",
+        titreResultats: "📋 Últimas contribuciones recibidas",
+        aucunResultat: "Ningún truco coincide exactamente con estos criterios.",
+        footer: "© chez-JL – Todos los derechos reservados",
+        musiqueOn: "🎵 Activar música",
+        musiqueOff: "🎵 Silenciar música"
       },
-      {
-        auteur: "ElectroPro",
-        categorie: "electricite",
-        categorieLabel: "Électricité",
-        media: "message",
-        mediaLabel: "Message",
-        texte: "Pensez toujours à couper le disjoncteur général avant de tester un va-et-vient.",
-        lienTexte: "",
-        url: ""
-      }
-    ];
-
-    // Interrupteur Play / Pause
-    function toggleAudio() {
-      const audio = document.getElementById('audio-ambiance');
-      const bouton = document.getElementById('btn-musique');
-      
-      if (audio.paused) { 
-        audio.play(); 
-        bouton.textContent = "🎵 Couper la musique";
-      } else { 
-        audio.pause(); 
-        bouton.textContent = "🎵 Activer la musique";
-      }
-    }
-    
-    // Changement de langue
-    function changerLangue(lang) {
-      alert("Changement de langue vers : " + lang.toUpperCase());
-    }
-
-    // Filtrage réel selon les cases cochées
-    function filtrerAstuces() {
-      const conteneur = document.getElementById('liste-astuces-flux');
-      
-      // Récupérer les catégories cochées
-      const catsCochees = Array.from(document.querySelectorAll('input[name="categorie"]:checked')).map(cb => cb.value);
-      // Récupérer les médias cochés
-      const mediasCoches = Array.from(document.querySelectorAll('input[name="media"]:checked')).map(cb => cb.value);
-
-      // Filtrer la liste (si rien n'est coché dans un groupe, on affiche tout pour ce groupe)
-      const resultats = astucesDisponibles.filter(astuce => {
-        const matchCat = catsCochees.length === 0 || catsCochees.includes(astuce.categorie);
-        const matchMedia = mediasCoches.length === 0 || mediasCoches.includes(astuce.media);
-        return matchCat && matchMedia;
-      });
-
-      // Affichage
-      if (resultats.length === 0) {
-        conteneur.innerHTML = '<p class="message-vide">Aucune astuce ne correspond exactement à ces critères.</p>';
-        return;
-      }
-
-      conteneur.innerHTML = resultats.map(item => `
-        <div class="carte-astuce ${item.categorie}">
-          <strong>${item.auteur} (${item.categorieLabel} - ${item.mediaLabel}) :</strong> "${item.texte}"
-          ${item.lienTexte ? `<br><a href="${item.url}">${item.lienTexte}</a>` : ''}
-        </div>
-      `).join('');
-    }
-  </script>
-</body>
-</html>
+      de: {
+        dir: "ltr",
+        sousTitre: "Tipps & Tricks Bereich",
+        retour: "⬅ Startseite",
+        labelLangue: "🌐 Sprache:",
+        titreFiltre: "🔍 Welcher Tipp interessiert Sie?",
+        parCat: "Nach Kategorie:",
+        catBricolage: "Heimwerken",
+        catMecanique: "Mechanik",
+        catMaison: "Haus & Alltag",
+        catElectricite: "Elektrizität",
+        catJardinage: "Garten",
+        parMedia: "Nach Medientyp:",
+        medTexte: "📝 Text-Tipps",
+        medImage: "🖼️ Gesendete Bilder",
+        medVideo: "🎬 Videos",
+        medMessage: "💬 Nachrichten der Nutzer",
+        btnRecherche: "Beiträge suchen",
+        titreResultats: "📋 Neueste eingegangene Beiträge",
+        aucunResultat: "Kein Tipp entspricht genau diesen Kriterien.",
+        footer: "© chez-JL – Alle Rechte vorbehalten",
+        musiqueOn: "🎵 Musik einschalten",
+        musiqueOff: "🎵 Musik ausschalten"
+      },
+      ar: {
+        dir: "rtl",
+        sousTitre: "مساحة استشارة النصائح والحيل",
+        retour: "➡ الرئيسية",
+        labelLangue: "🌐 اللغة :",
+        titreFiltre: "🔍 ما هي النصيحة التي تهمك؟",
+        parCat: "حسب الفئة :",
+        catBricolage: "أعمال يدوية",
+        catMecanique: "ميكانيكا",
+        catMaison: "المنزل والحياة اليومية",
+        catElectricite: "كهرباء",
+        catJardinage: "حديقة",
+        parMedia: "حسب نوع الوسائط :",
+        medTexte: "📝 نصائح نصية",
